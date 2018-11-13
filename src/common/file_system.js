@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { join as joinPath } from 'path';
 import mkdirp from 'mkdirp';
+import yaml from 'js-yaml';
 
 export default class FileSystem {
   constructor() { }
@@ -77,7 +78,7 @@ export default class FileSystem {
   readFile(path) {
     return new Promise(function (resolve, reject) {
       fs.readFile(path, 'utf8', function (error, content) {
-        error ? reject(error) : resolve(content);
+        error ? reject(error) : resolve(yaml.load(content));
       });
     });
   }
@@ -85,7 +86,7 @@ export default class FileSystem {
   writeFile(path, content = '') {
     return new Promise(function (resolve, reject) {
       try {
-        fs.writeFile(path, content, function (error) {
+        fs.writeFile(path, yaml.dump(content), function (error) {
           error ? reject(error) : resolve();
         });
       } catch (error) {

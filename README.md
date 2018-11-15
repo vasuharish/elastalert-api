@@ -146,8 +146,7 @@ This server exposes the following REST API's:
   
       ```javascript
       {
-        // Required - The full yaml rule config.
-        "yaml": "..."
+        
       }
       ```
     
@@ -169,8 +168,7 @@ This server exposes the following REST API's:
   
       ```javascript
       {
-        // Required - The full yaml template config.
-        "yaml": "..."
+        
       }
       ```
     

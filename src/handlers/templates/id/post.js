@@ -8,7 +8,7 @@ export default function templatePostHandler(request, response) {
    * @type {ElastalertServer}
    */
   let server = request.app.get('server');
-  let body = request.body ? request.body.yaml : undefined;
+  let body = request.body;
 
   server.templatesController.template(request.params.id)
     .then(function (template) {
